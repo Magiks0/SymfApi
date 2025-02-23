@@ -1,0 +1,22 @@
+# config/packages/nelmio_api_doc.yaml
+nelmio_api_doc:
+    documentation:
+        info:
+            title: 'API SymfAPI'
+            description: 'Documentation détaillée des différentes routes API'
+            version: '1.0.0'
+        servers:
+            - url: '/api'  # Assurez-vous que l'URL correspond à l'API de ton application
+
+    html_config:
+        # Configurer Swagger UI
+        swagger_ui_config:
+            displayOperationId: true
+            displayRequestDuration: true
+            filter: true
+            showExtensions: true
+
+    areas:
+        default:
+            path_patterns:
+                - ^/api/  # Indiquer que seules les routes /api/ seront documentées

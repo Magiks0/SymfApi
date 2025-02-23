@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 7 Sorties de la Semaine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .game {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .game:last-child {
+            border-bottom: none;
+        }
+        .game-title {
+            font-size: 20px;
+            color: #2c3e50;
+        }
+        .release-date {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .description {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        .game-image {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .game-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Les 7 Sorties de la Semaine</h1>
+
+    <p>Bonjour, voici les jeux vidéo qui sortiront cette semaine :</p>
+
+    {% for game in games %}
+        {% if game.coverImage %}
+            <div class="game-image">
+                <img src="{{ asset(game.coverImage) }}" alt="{{ game.title }}">
+            </div>
+        {% endif %}
+        <div class="game">
+            <div class="game-title">{{ game.title }}</div>
+            <div class="release-date">Date de sortie: {{ game.releaseDate|date('d/m/Y') }}</div>
+            <div class="description">{{ game.description }}</div>
+        </div>
+    {% else %}
+        <p>Aucun jeu vidéo prévu cette semaine.</p>
+    {% endfor %}
+
+    <div class="footer">
+        <p>Merci de faire partie de notre communauté !</p>
+        <p>Suivez-nous sur <a href="https://example.com">notre site</a> pour plus d'infos.</p>
+    </div>
+</div>
+</body>
+</html>
