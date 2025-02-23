@@ -20,6 +20,7 @@ php bin/console doctrine:fixtures:load
 ```
 
 Commandes à lancer pour le mail de newsletter :
+/!\ Vous devez modifier le MAILER_DSN dans le ficher d'environement
 ```bash
 php bin/console app:send-email
 ```
